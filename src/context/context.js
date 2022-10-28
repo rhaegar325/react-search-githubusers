@@ -34,7 +34,7 @@ const GithubProvider=({children})=>{
             // await axios(`${followers_url}?per_page=100`)
             // .then(res=>setFollowers(res.data));
 
-            await Promise.allSettled([axios(`${rootUrl}/users/${user}`).catch(err=>console.log(err)),axios(`${followers_url}?per_page=100`)])
+            await Promise.allSettled([axios(`${rootUrl}/users/${login}/repos?per_page=100`),axios(`${followers_url}?per_page=100`)])
             .then((results)=>{
                 const [repos,followers]=results;
                 const status='fulfilled';
